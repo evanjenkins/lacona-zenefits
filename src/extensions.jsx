@@ -8,9 +8,9 @@ import {exec} from 'child_process'
 const ZenefitCommands = {
   describe () {
     return (
-      <repeat unique separator={<list items={[' and ', ', and ', ', ']} limit={1} category='conjunction' />}>
+      <repeat unique separator={<list limit={1} />}>
         <label text='action' suppressEmpty={false}>
-          <list items={[{text: 'in', value: 'in'}, {text: 'out', value: 'out'}, {text: 'lunch', value: 'lunch'}, {text: 'endlunch', value: 'endlunch'}]} limit={4} strategy='fuzzy' />
+          <list items={[{text: 'clock in', value: 'in'}, {text: 'clock out', value: 'out'}, {text: 'lunch', value: 'lunch'}, {text: 'end lunch', value: 'endlunch'}]} limit={4} strategy='fuzzy' />
         </label>
       </repeat>
     )
@@ -32,7 +32,7 @@ export const Zenefits = {
     return (
       <choice limit="{1}">
         <sequence>
-          <literal text="zen" category="action" />
+          <literal text="zenefits" category="action" />
           <literal text=" " />
           <ZenefitCommands id="zenefitsCommands" />
         </sequence>
